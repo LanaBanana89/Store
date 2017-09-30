@@ -20,10 +20,12 @@ class Product
   end
 
   def self.show_all(products)
-    for item in products do
-      print (products.index(item) + 1).to_s + " "
-      puts item.show_info.to_s
+
+    products.each_with_index do |product, index|
+    print "#{index + 1}: "
+    puts product.show_info.to_s
     end
+
   end
 
   def amount

@@ -39,7 +39,7 @@ puts "Какой товар желаете приобрести?"
 
 choice = STDIN.gets.to_i
 
-while (choice == 0) || !(choice =~ /^\d$/) && !(choice <= products.size) # проверка на кооректный ввод пользователя
+while (choice == 0) ||  !(choice =~ /^\d$/) && !(choice <= products.size) # проверка на кооректный ввод пользователя
   Product.show_all(products)
   puts "Выберите товар"
   choice = STDIN.gets.to_i
@@ -47,7 +47,7 @@ end
 
 products[choice - 1].buy # запускаем метод buy родительского класса Product
 
-puts "Остаток данного товара: #{products[choice - 1].amount}" 
+puts "Остаток данного товара: #{products[choice - 1].amount}"
 
 puts "Доход магазина: #{products[choice - 1].revenue}"
 
