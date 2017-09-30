@@ -13,23 +13,41 @@ require_relative 'film.rb'
 require_relative 'music.rb'
 require_relative 'book.rb'
 
-book = Book.new(150, 20)
+products = []
+
+book = Book.new(150, 0)
 
 book.update(:title => "Алхимик", :name_author => "Пауло Коэльо")
 
-book.show_info
+products << book
 
 film = Film.new(200, 50)
 
 film.update(:title => "Убить Билла", :director_name => "Тарантино", :year => 2003)
 
-film.show_info
+products << film
 
 music = Music.new(100, 200)
 
 music.update(:album_name => 'Кислород', :artist_name => 'Артем Пивоваров', :genre => 'Pop')
 
-music.show_info
+products << music
 
+Product.show_all(products)
 
+puts "Какой товар желаете приобрести?"
+
+choice = STDIN.gets.to_i
+
+while choice != 0 && choice != 1 && choice != 2
+  Product.show_all(products)
+  puts "Выберите товар"
+  choice = STDIN.gets.to_i
+end
+
+products[choice].buy
+
+puts "Остаток данного товара: #{products[choice].amount}"
+
+puts "Доход магазина: #{products[choice].revenue}"
 
