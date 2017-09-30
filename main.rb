@@ -17,17 +17,19 @@ book = Book.new(150, 20)
 
 book.update(:title => "Алхимик", :name_author => "Пауло Коэльо")
 
-puts "Название книги #{book.title} Имя автора #{book.name_author}"
+book.show_info
 
 film = Film.new(200, 50)
 
 film.update(:title => "Убить Билла", :director_name => "Тарантино", :year => 2003)
 
-puts "Название фильма #{film.title} Название режиссера #{film.director_name} Год #{film.year}"
+film.show_info
 
 music = Music.new(100, 200)
 
 music.update(:album_name => 'Кислород', :artist_name => 'Артем Пивоваров', :genre => 'Pop')
 
-puts "Название песни #{music.album_name} Название исполнителя #{music.artist_name} Жанр #{music.genre}"
+music.show_info
+
+
 

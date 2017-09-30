@@ -11,13 +11,9 @@ class Book < Product
     @name_author = options[:name_author]
   end
 
-  def title
-    @title
-  end
 
-  def name_author
-    @name_author
-
+  def get_info
+    "Книга #{@title}, автор #{@name_author} - #{self.price} руб. [осталось: #{self.amount}] "
   end
 
 end

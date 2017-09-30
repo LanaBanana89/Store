@@ -2,7 +2,6 @@ class Product
 
   def initialize(price, amount)
 
-    options = {}
     @price = price
     @amount = amount
 
@@ -21,5 +20,12 @@ class Product
 
   end
 
+  def get_info
+
+  end
+
+  def show_info
+    puts get_info
+  end
 
 end

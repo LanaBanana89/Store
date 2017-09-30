@@ -13,16 +13,8 @@ class Film < Product
     @director_name = options[:director_name]
   end
 
-  def title
-    @title
-  end
-
-  def year
-    @year
-  end
-
-  def director_name
-    @director_name
+  def get_info
+    "Фильм #{@title}, реж. #{@director_name}, год #{@year} - #{self.price} руб. [осталось: #{self.amount}] "
   end
 
 end

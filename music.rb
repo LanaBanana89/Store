@@ -13,15 +13,8 @@ class Music < Product
     @genre = options[:genre]
   end
 
-  def album_name
-      @album_name
+  def get_info
+    "Песня #{@album_name}, исп. #{@artist_name}, жанр #{@genre} - #{self.price} руб. [осталось: #{self.amount}] "
   end
 
-  def artist_name
-    @artist_name
-  end
-
-  def genre
-    @genre
-  end
 end
