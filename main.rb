@@ -1,4 +1,4 @@
-if (Gem.win_platform?)
+if (Gem.win_platform?) # Отображение русских букв на windows
   Encoding.default_external = Encoding.find(Encoding.locale_charmap)
   Encoding.default_internal = __ENCODING__
 
@@ -8,18 +8,18 @@ if (Gem.win_platform?)
 end
 
 
-require_relative 'product.rb'
+require_relative 'product.rb' # подключаем классы
 require_relative 'film.rb'
 require_relative 'music.rb'
 require_relative 'book.rb'
 
-products = []
+products = [] # создаём массив, куда будем загружать товары
 
-book = Book.new(150, 0)
+book = Book.new(150, 0) # создаём объект класса "Book"
 
-book.update(:title => "Алхимик", :name_author => "Пауло Коэльо")
+book.update(:title => "Алхимик", :name_author => "Пауло Коэльо") # присваиваем объекту название книги и имя автора
 
-products << book
+products << book # кладём объект в массив товаров
 
 film = Film.new(200, 50)
 
@@ -33,21 +33,21 @@ music.update(:album_name => 'Кислород', :artist_name => 'Артем Пи
 
 products << music
 
-Product.show_all(products)
+Product.show_all(products) # запускаем метод отображения всех товаров магазина
 
 puts "Какой товар желаете приобрести?"
 
 choice = STDIN.gets.to_i
 
-while choice != 0 && choice != 1 && choice != 2
+while (choice == 0) || !(choice =~ /^\d$/) && !(choice <= products.size) # проверка на кооректный ввод пользователя
   Product.show_all(products)
   puts "Выберите товар"
   choice = STDIN.gets.to_i
 end
 
-products[choice].buy
+products[choice - 1].buy # запускаем метод buy родительского класса Product
 
-puts "Остаток данного товара: #{products[choice].amount}"
+puts "Остаток данного товара: #{products[choice - 1].amount}" 
 
-puts "Доход магазина: #{products[choice].revenue}"
+puts "Доход магазина: #{products[choice - 1].revenue}"
 

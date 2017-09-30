@@ -21,7 +21,7 @@ class Product
 
   def self.show_all(products)
     for item in products do
-      print products.index(item).to_s + " "
+      print (products.index(item) + 1).to_s + " "
       puts item.show_info.to_s
     end
   end
