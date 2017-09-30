@@ -14,7 +14,7 @@ class Film < Product
   end
 
   def get_info
-    "Фильм #{@title}, реж. #{@director_name}, год #{@year} - #{self.price} руб. [осталось: #{self.amount}] "
+    "Фильм #{@title}, реж. #{@director_name}, год #{@year}"
   end
 
 end

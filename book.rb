@@ -13,7 +13,7 @@ class Book < Product
 
 
   def get_info
-    "Книга #{@title}, автор #{@name_author} - #{self.price} руб. [осталось: #{self.amount}] "
+    "Книга #{@title}, автор #{@name_author}"
   end
 
 end

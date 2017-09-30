@@ -14,7 +14,7 @@ class Music < Product
   end
 
   def get_info
-    "Песня #{@album_name}, исп. #{@artist_name}, жанр #{@genre} - #{self.price} руб. [осталось: #{self.amount}] "
+    "Песня #{@album_name}, исп. #{@artist_name}, жанр #{@genre}"
   end
 
 end

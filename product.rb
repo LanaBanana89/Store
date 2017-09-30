@@ -25,7 +25,7 @@ class Product
   end
 
   def show_info
-    puts get_info
+    puts "#{get_info} - #{self.price} руб. [осталось: #{self.amount}] "
   end
 
 end
