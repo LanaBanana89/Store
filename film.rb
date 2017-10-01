@@ -1,12 +1,5 @@
 class Film < Product
 
-  def initialize(price, amount)
-    super
-    @title
-    @year
-    @director_name
-  end
-
   def update(options)
     @title = options[:title]
     @year = options[:year]

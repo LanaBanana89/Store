@@ -6,38 +6,36 @@ class Product
     @amount = amount
   end
 
-  def update
-
-  end
-
-  def get_info
-
-  end
-
   def price
     @price
-  end
-
-  def show_info
-    puts "#{get_info} - #{@price} руб. [осталось: #{@amount}] "
-  end
-
-  def self.show_all(products)
-
-    products.each_with_index do |product, index|
-    print "#{index + 1}: "
-    puts product.show_info.to_s
-    end
-    puts "x. Покинуть магазин"
   end
 
   def amount
     @amount
   end
 
-  def revenue
-    @revenue
+  def update # абстрактный метод, который будет реализован дочерними классами
+
   end
+
+  def get_info # абстрактный метод, который будет реализован дочерними классами
+
+  end
+
+
+  def show_info # метод, отображающий информацию о товаре
+    puts "#{get_info} - #{@price} руб. [осталось: #{@amount}] "
+  end
+
+  def self.show_all(products) # метод, который выводит на экран все товары магазина
+
+    products.each_with_index do |product, index|
+      print "#{index + 1}: "
+    puts product.show_info.to_s
+    end
+    puts "x. Покинуть магазин"
+  end
+
 
   def buy
 
@@ -45,8 +43,10 @@ class Product
       puts "Извините, данного товара нет на складе :("
     else
       @amount -= 1
+      puts "*   *   *"
       print  "Вы приобрели "
       puts get_info.to_s
+      puts "*   *   *"
     end
 
   end
