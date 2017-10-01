@@ -4,7 +4,6 @@ class Product
 
     @price = price
     @amount = amount
-    @revenue = 0
   end
 
   def update
@@ -13,6 +12,10 @@ class Product
 
   def get_info
 
+  end
+
+  def price
+    @price
   end
 
   def show_info
@@ -25,7 +28,7 @@ class Product
     print "#{index + 1}: "
     puts product.show_info.to_s
     end
-
+    puts "x. Покинуть магазин"
   end
 
   def amount
@@ -42,7 +45,6 @@ class Product
       puts "Извините, данного товара нет на складе :("
     else
       @amount -= 1
-      @revenue += @price
       print  "Вы приобрели "
       puts get_info.to_s
     end
