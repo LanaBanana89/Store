@@ -1,7 +1,6 @@
 class Product
 
   def initialize(price, amount)
-
     @price = price
     @amount = amount
   end
@@ -15,11 +14,9 @@ class Product
   end
 
   def update # абстрактный метод, который будет реализован дочерними классами
-
   end
 
   def get_info # абстрактный метод, который будет реализован дочерними классами
-
   end
 
 
@@ -31,8 +28,9 @@ class Product
 
     products.each_with_index do |product, index|
       print "#{index + 1}: "
-    puts product.show_info.to_s
+      print product.show_info.to_s
     end
+
     puts "x. Покинуть магазин"
   end
 
@@ -44,8 +42,7 @@ class Product
     else
       @amount -= 1
       puts "*   *   *"
-      print  "Вы приобрели "
-      puts get_info.to_s
+      puts  "Вы приобрели #{get_info}"
       puts "*   *   *"
     end
 
