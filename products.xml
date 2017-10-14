@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8'?> 
+<products>
+  <product price='1000' amount='5'>
+    <book title='Код Давинча' author='Дэн Браун'/>
+  </product>
+  <product price='300' amount='10'>
+    <film title='Убить Билла' director='Квентин Тарантино' year='2003'/>
+  </product>
+  <product price='100' amount='17'>
+    <music album_name='Yello submarine' artist='Beatles' genre='Pop'/>
+  </product>
+  <product price='700' amount='6'>
+    <book title='Путешествие в Икстлан' author='Карлос Кастанеда'/>
+  </product>
+  <product price='350' amount='3'>
+    <film title='Титаник' director='Джеймс Кэмерон' year='1997'/>
+  </product>
+  <product price='400' amount='9'>
+    <music album_name='Один на один' artist='Звери' genre='Rock'/>
+  </product>
+  <product price='350' amount='6'>
+    <film title='Ледниковый период' director='Крис Уэдж' year='2002'/>
+  </product>
+  <product price='150' amount='12'>
+    <music album_name='Кислород' artist='Артем Пивоваров' genre='Pop'/>
+  </product>
+  <product price='600' amount='10'>
+    <book title='Гарри Поттер и Философский камень' author='Джоан Роуллинг'/>
+  </product>
+  <product price='300' amount='30'>
+    <film title='Аватар' director='Джеймс Кэмерон' year='2009'/>
+  </product>
+  <product price='400' amount='15'>
+    <book title='Сумерки' author='Стефани Майер'/>
+  </product>
+  <product price='100' amount='19'>
+    <music album_name='Всё лучшее в тебе' artist='Звери' genre='Rock'/>
+  </product>
+  <product price='120' amount='5'>
+    <music album_name='Пьяное солнце' artist='Alekseev' genre='Pop'/>
+  </product>
+</products>
