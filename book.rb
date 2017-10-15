@@ -19,12 +19,6 @@ class Book < Product
   end
 
   def to_xml(user_title, user_author)
-    file_path = File.dirname(__FILE__) + "/products.xml"
-    abort "Файл не найден" unless File.exist?(file_path)
-
-    file = File.new(file_path,"r:utf-8")
-    doc = REXML::Document.new(file)
-    file.close
 
     book = REXML::Element.new 'book'
 
