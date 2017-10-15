@@ -12,6 +12,7 @@ require_relative 'film.rb'
 require_relative 'music.rb'
 require_relative 'book.rb'
 require 'rexml/document'
+require 'rexml/element'
 
 #products = [] # создаём массив, куда будем загружать товары
 
@@ -46,27 +47,33 @@ if choice == "d"
     puts "Укажите, сколько ед. продукта осталось на складке"
     user_count = STDIN.gets.chomp
   if user_add == 1
+    product = Book.new(user_cost, user_count)
     puts "Укажите автора книги"
     user_author = STDIN.gets.chomp
     puts "Укажите название книги"
     user_title = STDIN.gets.chomp
-    Product.add_book(user_cost, user_count, user_title, user_author, 'products.xml')
+    book_xml = product.to_xml(user_title, user_author)
+    Product.save_to_xml(product, book_xml)
   elsif user_add == 2
+    product = Film.new(user_cost, user_count)
     puts "Укажите название фильма"
     user_title = STDIN.gets.chomp
     puts "Укажите режиссера"
     user_director = STDIN.gets.chomp
     puts "Укажите год создания фильма"
     user_year = STDIN.gets.chomp
-    Product.add_film(user_cost, user_count, user_title, user_director, user_year,'products.xml')
+    film_xml = product.to_xml(user_title, user_director, user_year)
+    Product.save_to_xml(product, film_xml)
   elsif user_add == 3
+    product = Music.new(user_cost, user_count)
     puts "Укажите исполнителя"
     user_artist = STDIN.gets.chomp
     puts "Укажите название песни"
     user_album_name = STDIN.gets.chomp
     puts "Укажите жанр"
     user_genre = STDIN.gets.chomp
-    Product.add_music(user_cost, user_count, user_album_name, user_artist, user_genre,'products.xml' )
+    music_xml = product.to_xml(user_album_name, user_artist, user_genre)
+    Product.save_to_xml(product, music_xml)
   end
   puts "Товар успешно добавлен"
 elsif
@@ -75,9 +82,10 @@ elsif
 
      user_buy += products[choice.to_i - 1].price # то цену товара записываем в корзину покупателя
 
+     puts products[choice.to_i - 1].buy # отображаем покупателю информацию о купленном им товаре
+  elsif products[choice.to_i - 1].amount == 0
+    puts products[choice.to_i - 1].buy
   end
-
-  puts products[choice.to_i - 1].buy # отображаем покупателю информацию о купленном им товаре
 
 end
 end

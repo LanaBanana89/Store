@@ -82,58 +82,31 @@ class Product
       return result
   end
 
-  def self.add_book(user_cost, user_count, user_title, user_author,file)
-    file_path = File.dirname(__FILE__) + "/" + file
-    abort "Файл не найден" unless File.exist?(file_path)
+  def to_xml
 
-    file_name = File.new(file_path,"r:utf-8")
-    doc = REXML::Document.new(file_name)
-    file_name.close
-
-    product = doc.root.add_element "product", {'price' => user_cost, 'amount' => user_count}
-
-    if !product.has_elements?
-    product.add_element "book", {'title' => user_title, 'author' => user_author}
-    end
-    file_name = File.new(file_path,"w:utf-8")
-    doc.write(file_name, 2)
-    file_name.close
   end
 
-  def self.add_film(user_cost, user_count, user_title, user_director, user_year, file)
-    file_path = File.dirname(__FILE__) + "/" + file
+  def self.save_to_xml(product, product_xml)
+    file_path = File.dirname(__FILE__) + "/products.xml"
     abort "Файл не найден" unless File.exist?(file_path)
 
-    file_name = File.new(file_path,"r:utf-8")
-    doc = REXML::Document.new(file_name)
-    file_name.close
+    file = File.new(file_path,"r:utf-8")
+    doc = REXML::Document.new(file)
+    file.close
 
-    product = doc.root.add_element "product", {'price' => user_cost, 'amount' => user_count}
+    el_product = doc.root.add_element "product", {'price' => product.price ,'amount' => product.amount}
+    el_product.elements << product_xml
+    #if product.class == 'Book'
+    #el_product << product.to_xml(user_title, user_author)
+    #elsif product.class == 'Film'
+    #el_product << product.to_xml(user_title, user_director, user_year)
+    #end
 
-    if !product.has_elements?
-      product.add_element "film", {'title' => user_title, 'director' => user_director, 'year' => user_year}
-    end
-    file_name = File.new(file_path,"w:utf-8")
-    doc.write(file_name, 2)
-    file_name.close
-  end
 
-  def self.add_music(user_cost, user_count, user_album_name, user_artist, user_genre, file)
-    file_path = File.dirname(__FILE__) + "/" + file
-    abort "Файл не найден" unless File.exist?(file_path)
 
-    file_name = File.new(file_path,"r:utf-8")
-    doc = REXML::Document.new(file_name)
-    file_name.close
-
-    product = doc.root.add_element "product", {'price' => user_cost, 'amount' => user_count}
-
-    if !product.has_elements?
-      product.add_element "music", {'album_name' => user_album_name, 'artist' => user_artist, 'genre' => user_genre}
-    end
-    file_name = File.new(file_path,"w:utf-8")
-    doc.write(file_name, 2)
-    file_name.close
+    file = File.new(file_path,"w:utf-8")
+    doc.write(file, 2)
+    file.close
   end
 
 end
